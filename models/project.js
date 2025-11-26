@@ -10,13 +10,24 @@ const projectSchema=mongoose.Schema({
         required:[true,"Please enter the location"]
     },
     planFile:{
-        type:String,
-        required:false
+        type:String
     },
     createdBy:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
         required:true
+    },
+    status:{
+        type:String,
+        enum:['active','on hold','completed'],
+        default:'active'
+    },
+    budget:{
+        type:Number
+    },
+    remainders:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Remainders"
     }
 },
 {timestamps:true}

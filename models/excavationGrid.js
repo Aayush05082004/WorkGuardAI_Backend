@@ -4,7 +4,7 @@ const { currentUser } = require("../controller/userController");
 const excavationSchema=mongoose.Schema({
     projectId:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref:"project",
+        ref:"Project",
         required:true
     },
     taskName:{
@@ -16,7 +16,7 @@ const excavationSchema=mongoose.Schema({
     },
     assignedTo:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"user"
+        ref:"User"
     },
     plannedStartDate:{
         type:Date
@@ -29,6 +29,7 @@ const excavationSchema=mongoose.Schema({
     },
     currentStatus:{
         type:String,
+        required:[true,"Enter Status"],
         enum:['Not Started','On hold',"Completed"],
         default:"Not Started"
     }

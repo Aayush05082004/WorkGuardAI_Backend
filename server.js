@@ -8,6 +8,7 @@ connectDb();
 app.use(express.json());
 app.use("/api/users",require("./routes/userRoutes"))
 app.use("/api/project", require("./routes/projectRoutes"))
+app.use("/api/tasks",require("./routes/excavationTaskRoutes"))
 app.use(errorHandler)
 
 const port=process.env.PORT || 8080;
